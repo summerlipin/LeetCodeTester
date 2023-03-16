@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Let's code!
+{% endblock %}
+
+{% block main %}
+    <a id="btnreturn" class="btn btn-secondary" href='{{url_for("homepage", _topic = session["topic"]) }}'>Go back to problem list</a>
+    <div id="questionContent" class="questionContent" name="questionContent"></div>
+    <form method="post" class="container-fluid" action="/sandbox/titleSlug/title">
+        <label class="form-label">Your Code:</label>
+        <div class="input-group">
+            <input id="totalLineNum" name="totalLines">
+            <div class="input-group-prepend lineCounter">
+                {% if totalLineNum %}
+                    {% for i in range(1,totalLineNum|int + 1) %}
+                    <span class="lineNum"></span>
+                    {% endfor %}
+                {% else %}
+                    <span class="lineNum"></span>
+                {% endif %}
+            </div>
+            <textarea class="form-control codeSpace" rows="20" 
+            nowrap="nowrap" wrap="off" res
+            autocomplete="off" autocorrect="off" 
+            autocapitalize="off" spellcheck="false" name="inCode">{{ Code }}</textarea>
+        </div>       
+        <button type="submit" class="float-end btn btn-primary">Submit</button><br>
+        <div class="mb-3">
+            <label class="form-label">Result</label>
+            <textarea class="form-control" rows="3" name="outResult">{{ Result }}</textarea>
+        </div>
+    </form>
+    <script>
+        var content = '{{ QContent|safe }}'
+        document.getElementById("questionContent").innerHTML = content
+    </script>
+{% endblock %}

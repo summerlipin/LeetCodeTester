@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Getting started
+{% endblock %}
+
+{% block main %}
+<a class="btn btn-primary" href='{{url_for("homepage", _topic="top-interview-questions") }}'>Top Interview Questions</a>
+<a class="btn btn-primary" href='{{url_for("homepage", _topic="top-100-liked-questions") }}'>Top 100 liked Questions</a>
+</br>
+</br>
+<p id="qTopic"> {{ topic }}</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Question</th>
+            <th scope="col">Difficulty</th>
+            <th scope="col">Category</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% set count = [] %}
+        {% for item in data %} 
+        {% set names = [] %}
+          <tr>
+            {% set __ = count.append(1) %}
+            <td scope="row">{{ count|length }}</td>
+            <td><a href="{{ url_for('sandBox', titleSlug=item.titleSlug, title=item.title )}}">{{ item.title }}</a></td>
+            <td>{{ item.difficulty }}</td>
+            {% for topic in item.topicTags %}
+                {% set __ = names.append(topic.name) %}
+            {% endfor %}
+            <td>{{ names|join("/") }}</td>
+          </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+

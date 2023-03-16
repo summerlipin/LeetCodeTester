@@ -1,0 +1,11 @@
+{
+    "python.analysis.typeCheckingMode": "basic",
+    "python.testing.pytestArgs": [
+        "."
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "code-runner.runInTerminal": true,
+    "appService.defaultWebAppToDeploy": "/subscriptions/f7758fed-4980-4ba8-8ac6-8ee6fa7d16ff/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/LeetCodeTester",
+    "appService.deploySubpath": "."
+}

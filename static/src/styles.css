@@ -1,0 +1,47 @@
+#brand {
+    font-size: large;
+    font-weight: bold;
+}
+
+#qTopic {
+    font-size: large;
+    font-weight: bold;
+    color: darkslategray;
+}
+
+#btnreturn{
+    float: right;
+}
+
+.lineCounter span::before {
+    content: counter(linenumber);
+    text-align: center; 
+    color: black;
+    display: block;
+    margin-left: 2px;
+}
+
+.debug {
+    display: block;
+    width: 25px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.lineCounter span {
+    counter-increment: linenumber;
+}
+
+.lineCounter {
+    padding-right: 10px;
+}
+
+.codeSpace {
+    overflow-x: scroll; 
+    padding: 0 0 0 1px;
+}
+
+#totalLineNum {
+    visibility: hidden;
+    position: absolute;
+}
